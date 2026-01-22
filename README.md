@@ -152,7 +152,7 @@ Plexyfin supports two tunneling options to access your server from anywhere:
 
 1. Install cloudflared:
    ```bash
-   # Linux/Mac
+   # Linux/Mac(Intel)
    wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
    sudo mv cloudflared-linux-amd64 /usr/local/bin/cloudflared
    sudo chmod +x /usr/local/bin/cloudflared
