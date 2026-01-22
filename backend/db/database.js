@@ -19,6 +19,7 @@ function getDb() {
   return db;
 }
 
+// Database initialization
 async function initDatabase() {
   return new Promise((resolve, reject) => {
     const db = getDb();
