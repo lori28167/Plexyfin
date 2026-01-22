@@ -1,0 +1,26 @@
+[Unit]
+Description=Plexyfin Media Server
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+WorkingDirectory=/path/to/plexyfin
+ExecStart=/usr/bin/node backend/server.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/path/to/plexyfin/logs/plexyfin.log
+StandardError=append:/path/to/plexyfin/logs/plexyfin-error.log
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/path/to/plexyfin/data /path/to/plexyfin/logs
+
+# Environment
+Environment="NODE_ENV=production"
+
+[Install]
+WantedBy=multi-user.target

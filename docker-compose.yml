@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  plexyfin:
+    build: .
+    container_name: plexyfin
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-change-this-secret-key}
+      - MEDIA_PATHS=/media
+      - DB_PATH=/app/data/plexyfin.db
+      - FFMPEG_PATH=/usr/bin/ffmpeg
+      - FFPROBE_PATH=/usr/bin/ffprobe
+      - TRANSCODE_TEMP=/tmp/plexyfin-transcode
+      - TMDB_API_KEY=${TMDB_API_KEY:-}
+      - ENABLE_TUNNEL=${ENABLE_TUNNEL:-false}
+      - TUNNEL_TYPE=${TUNNEL_TYPE:-cloudflared}
+      - CLOUDFLARE_TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN:-}
+      - NGROK_AUTH_TOKEN=${NGROK_AUTH_TOKEN:-}
+    volumes:
+      # Persistent data
+      - ./data:/app/data
+      # Your media directories (adjust paths as needed)
+      - /path/to/your/movies:/media/movies:ro
+      - /path/to/your/tv-shows:/media/tv-shows:ro
+      - /path/to/your/music:/media/music:ro
+      # Transcode cache
+      - transcode-cache:/tmp/plexyfin-transcode
+    networks:
+      - plexyfin-network
+
+  # Optional: Cloudflare Tunnel sidecar
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: plexyfin-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    networks:
+      - plexyfin-network
+    profiles:
+      - tunnel
+    depends_on:
+      - plexyfin
+
+volumes:
+  transcode-cache:
+
+networks:
+  plexyfin-network:
+    driver: bridge
