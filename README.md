@@ -5,7 +5,7 @@ A self-hosted media server that combines the best features of **Jellyfin** and *
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-## ✨ Features
+##  Features
 
 ### From Jellyfin
 - **100% Open Source** - No proprietary code or paywalls
@@ -39,7 +39,7 @@ A self-hosted media server that combines the best features of **Jellyfin** and *
 - **RAM**: Minimum 2GB, 4GB+ recommended
 - **CPU**: Multi-core recommended for transcoding
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -72,7 +72,7 @@ A self-hosted media server that combines the best features of **Jellyfin** and *
    - Login with default credentials: `admin` / `admin`
    - **⚠️ IMPORTANT**: Change the password immediately after first login!
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ### Using Docker Compose (Recommended)
 
@@ -105,7 +105,7 @@ A self-hosted media server that combines the best features of **Jellyfin** and *
 docker-compose --profile tunnel up -d
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -141,7 +141,7 @@ NGROK_AUTH_TOKEN=your-token
 3. Request an API key
 4. Add it to your `.env` file as `TMDB_API_KEY`
 
-## 🌐 External Access Setup
+## Clouflare/Ngrok tunnel Setup
 
 Plexyfin supports two tunneling options to access your server from anywhere:
 
