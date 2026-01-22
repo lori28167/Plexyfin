@@ -1,3 +1,4 @@
+// ATTENTION: This file uses SQLite for simplicity. Don't use it in production environments with high concurrency needs.
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const bcrypt = require('bcryptjs');
