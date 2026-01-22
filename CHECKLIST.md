@@ -1,8 +1,8 @@
 # Plexyfin Setup Checklist
 
-Use this checklist to ensure your Plexyfin installation is complete and properly configured.
+Use this checklist to see what you have to do
 
-## ✅ Pre-Installation
+## Pre-Installation
 
 - [ ] Node.js 18+ installed
   ```bash
@@ -24,7 +24,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   git --version
   ```
 
-## ✅ Installation
+## Installation
 
 - [ ] Project downloaded/cloned
   ```bash
@@ -56,7 +56,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   npm run build
   ```
 
-## ✅ Configuration
+## Configuration
 
 - [ ] `.env` file exists
   ```bash
@@ -85,7 +85,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   grep TMDB_API_KEY .env
   ```
 
-## ✅ First Run
+## First Run
 
 - [ ] Server starts without errors
   ```bash
@@ -116,7 +116,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   - Go to Library tab
   - Should see your media files
 
-## ✅ Features Testing
+## Features Testing
 
 - [ ] Can browse library
   - All media types show up
@@ -140,7 +140,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   - Library → Search bar
   - Results appear
 
-## ✅ Optional: External Access
+##  Optional: External Access
 
 ### Using Cloudflare Tunnel
 
@@ -185,7 +185,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   - Check console output
   - Test from external device
 
-## ✅ Optional: Docker Deployment
+## Optional: Docker Deployment
 
 - [ ] Docker installed
   ```bash
@@ -219,7 +219,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   docker-compose logs -f
   ```
 
-## ✅ Optional: System Service
+## Optional: System Service
 
 - [ ] Service file configured
   - Paths updated
@@ -244,7 +244,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   - Reboot system
   - Check service status
 
-## ✅ Production Readiness
+## Production Readiness
 
 - [ ] Changed admin password
   - CRITICAL!
@@ -277,7 +277,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   - Test from phone/tablet
   - Use server's local IP
 
-## ✅ Documentation Review
+## Documentation Review
 
 - [ ] Read README.md
 - [ ] Read QUICKSTART.md
@@ -286,7 +286,7 @@ Use this checklist to ensure your Plexyfin installation is complete and properly
   - GitHub issues
   - Project documentation
 
-## 🎯 Common Issues Checklist
+## Common Issues Checklist
 
 If something isn't working:
 
@@ -300,7 +300,7 @@ If something isn't working:
 - [ ] Media files are in supported formats
 - [ ] Paths in .env are absolute paths
 
-## 📊 Performance Checklist
+## Performance Checklist
 
 - [ ] Sufficient disk space for media
 - [ ] Enough RAM (4GB+ recommended)
@@ -309,10 +309,9 @@ If something isn't working:
 - [ ] Good network bandwidth
 - [ ] Temp directory has space for transcoding
 
-## 🔒 Security Checklist
+## Security Checklist
 
 - [ ] Default password changed
-- [ ] JWT_SECRET is strong and unique
 - [ ] Using HTTPS (via tunnel or reverse proxy)
 - [ ] Firewall properly configured
 - [ ] Regular backups enabled
@@ -321,13 +320,11 @@ If something isn't working:
 
 ---
 
-## ✨ All Done!
+## All Done!
 
-If you've checked all the relevant boxes, congratulations! 🎉
-
+If you've checked all the relevant boxes, congratulations.
 Your Plexyfin server is ready to use!
 
-Enjoy your personal media server! 🍿🎬
 
 ---
 
