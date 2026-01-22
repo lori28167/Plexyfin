@@ -1,7 +1,5 @@
 # Contributing to Plexyfin
 
-Thank you for your interest in contributing to Plexyfin! This document provides guidelines for contributing to the project.
-
 ## Getting Started
 
 1. Fork the repository
