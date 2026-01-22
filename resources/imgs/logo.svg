@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6750A4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7D5260;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropshadow" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="15"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Squircle -->
+  <rect x="32" y="32" width="448" height="448" rx="120" fill="url(#mainGradient)" filter="url(#dropshadow)" />
+  
+  <!-- Icon: A fusion of a Play button and a Shark/Dolphin Fin -->
+  <path d="M190 140 
+           L380 256 
+           L190 372 
+           Q240 256 190 140 Z" 
+        fill="#FFFFFF" />
+</svg>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Plexyfin - Home</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="custom-cursor">
+            <div class="cursor-inner"></div>
+        </div>
+        <header class="top-app-bar">
+            <div class="brand">
+                <img src="resources/imgs/logo.svg" alt="Plexyfin Logo" class="logo">
+                <h1>Plexyfin</h1>
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#docs">Docs</a>
+                <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section class="hero">
+                <h2 class="display-large">Plexyfin</h2>
+                <p class="body-text">An open-source project combining the best ideas from Jellyfin and Plex. Self-host, customize, and contribute.</p>
+                <p class="body-text">
+                    <a class="btn btn-filled" href="https://github.com/lori28167/Plexyfin/releases" target="_blank" rel="noopener"><img src="resources/imgs/download.svg" alt="" style="width:20px;height:20px;">Download</a>
+                    <a class="btn btn-tonal" href="https://github.com/lori28167/Plexyfin" target="_blank" rel="noopener"><img src="resources/imgs/github.svg" alt="" style="width:20px;height:20px;">View on GitHub</a>
+                </p>
+            </section>
+
+            <section id="docs">
+                <h3 style="font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 48px; color: var(--md-sys-color-primary);">Why Plexyfin?</h3>
+                <div class="card-grid">
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="resources/imgs/icon-opensource.svg" alt="Open Source">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Open Source</div>
+                            <div class="card-text">Community-driven development and transparent roadmap.</div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="resources/imgs/icon-selfhost.svg" alt="Self-Hosting">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Self-Hosting</div>
+                            <div class="card-text">Control your data and run on your own hardware.</div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="resources/imgs/icon-extensible.svg" alt="Extensible">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Extensible</div>
+                            <div class="card-text">Plugins and integrations for personalized setups.</div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <footer style="margin-top:48px;padding:24px 0;text-align:center;color:var(--md-sys-color-on-surface-variant);">
+                <div>Plexyfin — Made with ❣️ in Italy</div>
+                <div style="margin-top:16px;">
+                    <a href="https://github.com/lori28167/Plexyfin" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--md-sys-color-on-surface);">
+                        <img src="resources/imgs/github.svg" alt="GitHub" style="width:24px;height:24px;">
+                        View on GitHub
+                    </a>
+                </div>
+            </footer>
+        </main>
+
+        <script>
+            const cursor = document.querySelector('.custom-cursor');
+            const cursorInner = document.querySelector('.cursor-inner');
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
+            let innerX = 0, innerY = 0;
+            let lastX = 0, lastY = 0;
+            let velocityX = 0, velocityY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                velocityX = (mouseX - lastX);
+                velocityY = (mouseY - lastY);
+                
+                lastX = mouseX;
+                lastY = mouseY;
+            });
+
+            function animate() {
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+                
+                // Inner ball moves based on velocity direction with max offset
+                const targetInnerX = Math.max(-6, Math.min(6, velocityX * 0.5));
+                const targetInnerY = Math.max(-6, Math.min(6, velocityY * 0.5));
+                
+                innerX += (targetInnerX - innerX) * 0.2;
+                innerY += (targetInnerY - innerY) * 0.2;
+                
+                cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+                cursorInner.style.transform = `translate(calc(-50% + ${innerX}px), calc(-50% + ${innerY}px))`;
+                
+                velocityX *= 0.85;
+                velocityY *= 0.85;
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            document.querySelectorAll('a, button, .btn, .card').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+            });
+        </script>
+    </body>
+</html>
