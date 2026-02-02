@@ -8,7 +8,7 @@ set -e
 echo "🎬 Plexyfin Installation Script"
 echo "================================"
 echo ""
-
+git clone https://github.com/lori28167/Plexyfin
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
